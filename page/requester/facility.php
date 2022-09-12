@@ -92,3 +92,6 @@
 
 <?php include 'plugins/footer.php';?>
 <?php include 'plugins/javascript/facilities_script.php';?>
+<script>
+  setTimeout(load_facilities,1000);
+</script>

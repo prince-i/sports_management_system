@@ -93,3 +93,6 @@
 
 <?php include 'plugins/footer.php';?>
 <?php include 'plugins/javascript/equipment_script.php';?>
+<script>
+  setTimeout(load_equipments,1000);
+</script>

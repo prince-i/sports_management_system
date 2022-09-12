@@ -100,3 +100,6 @@
 
 <?php include 'plugins/footer.php';?>
 <?php include 'plugins/javascript/pending_script.php';?>
+<script>
+  setTimeout(load_pending,1000);
+</script>

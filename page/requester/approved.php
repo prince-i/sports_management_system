@@ -100,3 +100,6 @@
 
 <?php include 'plugins/footer.php';?>
 <?php include 'plugins/javascript/approved_script.php';?>
+<script>
+  setTimeout(load_approved,1000);
+</script>

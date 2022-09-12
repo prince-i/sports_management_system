@@ -9,13 +9,13 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">List of Dis-Approved</h1>
+            <h1 class="m-0">List of Disapproved</h1>
             <br>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="dashboard.php">Home</a></li>
-              <li class="breadcrumb-item active">List of Dis-Approved</li>
+              <li class="breadcrumb-item active">List of Disapproved</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -100,3 +100,6 @@
 
 <?php include 'plugins/footer.php';?>
 <?php include 'plugins/javascript/disapproved_script.php';?>
+<script>
+  setTimeout(load_disapproved,1000);
+</script>
