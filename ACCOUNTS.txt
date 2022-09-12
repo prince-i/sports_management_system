@@ -1,0 +1,7 @@
+ADMIN 
+user: admin@mail.com
+pass: admin
+
+USER/STUDENT REQUESTER
+user: req@mail.com
+pass: admin

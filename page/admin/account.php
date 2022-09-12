@@ -74,7 +74,7 @@
                      <div class="col-3">
                       <span style="visibility:hidden;">.</span>
                       <p style="text-align:right;"><a href="#" class="btn btn-primary" onclick="load_accounts()">Search <i class="fa fa-search"></a></i>
-                      <a href="#" class="btn btn-success" onclick="export_accountss('accounts_tbl')">Export</a>
+                      <a href="#" class="btn btn-success" onclick="export_accounts('accounts_tbl')">Export</a>
                     </p>
                     </div>
                   </div>
