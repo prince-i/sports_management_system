@@ -12,6 +12,10 @@ if ($method == 'fetch_rejected') {
 	if ($stmt->rowCount() > 0) {
 		foreach($stmt->fetchALL() as $j){
 			$c++;
+			$status = $j['status'];
+			if($status == 'Dis-Approved'){
+				$status = 'Disapproved';
+			}
 			echo '<tr style="cursor:pointer;" class="modal-trigger" data-toggle="modal" data-target="#admin_pending" onclick="get_admin_pending_details(&quot;'.$j['id'].'~!~'.$j['id_number'].'~!~'.$j['name'].'~!~'.$j['borrowed_date'].'~!~'.$j['time_from'].'~!~'.$j['time_to'].'~!~'.$j['returned_date'].'~!~'.$j['returned_time'].'~!~'.$j['facility'].'~!~'.$j['purpose'].'~!~'.$j['borrowing_code'].'~!~'.$j['status'].'&quot;)">';
 				echo '<td>'.$c.'</td>';
 				echo '<td>'.$j['borrowing_code'].'</td>';
@@ -22,7 +26,7 @@ if ($method == 'fetch_rejected') {
 				echo '<td>'.$j['purpose'].'</td>';
 				echo '<td>'.$j['returned_date'].'</td>';
 				echo '<td>'.$j['returned_time'].'</td>';
-				echo '<td>'.$j['status'].'</td>';
+				echo '<td style="color:red; font-weight:bold;">'.$status.'</td>';
 			echo '</tr>';
 		}
 	}else{
