@@ -6,7 +6,7 @@ const load_accounts =()=>{
 	var name = document.getElementById('name').value;
 	var course = document.getElementById('course').value;
 	var user_type = document.getElementById('user_type').value;
-
+    var acct_permission = document.getElementById('permission').value;
 	$.ajax({
       url: '../../process/admin/accounts.php',
                 type: 'POST',
@@ -16,7 +16,8 @@ const load_accounts =()=>{
                     id_number:id_number,
 					name:name,
 					course:course,
-					user_type:user_type
+					user_type:user_type,
+                    acct_permission:acct_permission
                 },success:function(response){
                    document.getElementById('list_of_accounts').innerHTML = response;
                    $('#spinner').fadeOut(function(){                       

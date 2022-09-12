@@ -8,9 +8,10 @@ if ($method == 'fetch_account') {
 	$name = $_POST['name'];
 	$course = $_POST['course'];
 	$user_type = $_POST['user_type'];
+	$permission = $_POST['acct_permission'];
 	$c = 0;
 
-	$query = "SELECT * FROM user_accounts WHERE id_number LIKE '$id_number%' AND Name LIKE '$name%' AND course LIKE '$course%' AND role LIKE '$user_type%'";
+	$query = "SELECT * FROM user_accounts WHERE id_number LIKE '$id_number%' AND Name LIKE '$name%' AND course LIKE '$course%' AND role LIKE '$user_type%' AND permission LIKE '$permission%'";
 	$stmt = $conn->prepare($query);
 	$stmt->execute();
 	if ($stmt->rowCount() > 0) {
@@ -71,7 +72,7 @@ if ($method == 'update_account') {
 		}
 	}
 }
-
+## FIXED
 if($method == 'register_account'){
 	$id_number = $_POST['id_num'];
     $name = $_POST['name'];

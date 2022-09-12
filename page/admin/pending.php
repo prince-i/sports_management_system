@@ -44,14 +44,17 @@
                     </div>
                      <div class="col-9">
                       <span style="visibility:hidden;">.</span>
-                      <p style="text-align:right;"><a href="#" class="btn btn-primary" onclick="load_pending()">Search <i class="fa fa-search"></a></i></p>
+                      <p style="text-align:right;">
+                      <a href="#" class="btn btn-primary" onclick="load_pending()">Search <i class="fa fa-search"></a></i>
+                      <a href="#" class="btn btn-success" onclick="export_pending('pending_tbl')">Export</a>
+                    </p>
                     </div>
                   </div>
                   <br>
                   <div class="row">
                     <div class="col-12">
                        <div class="card-body table-responsive p-0" style="height: 450px;">
-                <table class="table table-head-fixed text-nowrap table-hover" id="">
+                <table class="table table-head-fixed text-nowrap table-hover" id="pending_tbl">
                 <thead style="text-align:center;">
                     <th>#</th>
                     <th>Borrowing Code</th>
@@ -99,4 +102,29 @@
 
 <?php include 'plugins/footer.php';?>
 <?php include 'plugins/javascript/pending_script.php';?>
-<script>setTimeout(load_pending,1000)</script>
+<script>
+setTimeout(load_pending,1000)
+function export_pending(table_id, separator = ',') {
+    var rows = document.querySelectorAll('table#' + table_id + ' tr');
+    var csv = [];
+    for (var i = 0; i < rows.length; i++) {
+        var row = [], cols = rows[i].querySelectorAll('td, th');
+        for (var j = 0; j < cols.length; j++) {
+            var data = cols[j].innerText.replace(/(\r\n|\n|\r)/gm, '').replace(/(\s\s)/gm, ' ')
+            data = data.replace(/"/g, '""');
+            row.push('"' + data + '"');
+        }
+        csv.push(row.join(separator));
+    }
+    var csv_string = csv.join('\n');
+    var filename = 'PENDING_BORROW_REQUEST'+ '_' + new Date().toLocaleDateString() + '.csv';
+    var link = document.createElement('a');
+    link.style.display = 'none';
+    link.setAttribute('target', '_blank');
+    link.setAttribute('href', 'data:text/csv;charset=utf-8,' + encodeURIComponent(csv_string));
+    link.setAttribute('download', filename);
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+}
+</script>
