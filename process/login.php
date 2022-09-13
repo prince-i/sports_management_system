@@ -30,7 +30,7 @@
                     header('location: page/admin/dashboard.php');    
                 }
             }else{
-                echo "The account is not authorized to access the system!";
+                echo "<b style='color:red'>The account is not authorized to access the system!</b>";
             }
             
         }else{

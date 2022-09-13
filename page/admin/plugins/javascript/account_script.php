@@ -142,17 +142,35 @@ const update_account =()=>{
                     permission:permission
                 },success:function(response){
                     console.log(response);
-                   if (response == 'Already Exist') {
+                    var resString = response.split('~!~');
+                    var response_ = resString[0];
+                    var email_ = resString[1];
+
+                   if (response_ == 'Already Exist') {
                    	swal('Information','Data Already Exist!','info');
                    }
-                   else if (response == 'success') {
+                   else if (response_ == 'success') {
                    	swal('Success','Successfully Updated!','success');
                     load_accounts();
+                    send_email(email_);
                    }else{
                    	swal('Error','Error!','error');      
                    }
                 }
 	});
+}
+
+const send_email =(x)=>{
+    $.ajax({
+        url: '../../process/mailer/index.php',
+        type: 'POST',
+        cache: false,
+        data:{
+            email:x
+        },success:function(response){
+            console.log(response);
+        }
+    })
 }
 
 

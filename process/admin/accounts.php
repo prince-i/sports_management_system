@@ -66,9 +66,9 @@ if ($method == 'update_account') {
 		$query = "UPDATE user_accounts SET id_number = '$id_number', Name = '$Name', course = '$course', yr_section = '$yr_section', email = '$email', password = '$password', role = '$role', permission = '$permission' WHERE id = '$id'";
 		$stmt = $conn->prepare($query);
 		if ($stmt->execute()) {
-			echo 'success';
+			echo "success~!~$email";
 		}else{
-			echo 'error';
+			echo "error~!~$email";
 		}
 	}
 }

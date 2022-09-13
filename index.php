@@ -153,6 +153,7 @@
           }else{
             alert('Account request failed please report to system admin.');
           }
+          location.reload();
         }
       })
     }

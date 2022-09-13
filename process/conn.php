@@ -13,7 +13,7 @@
         $conn = new PDO ("mysql:host=$servername;dbname=sports_management_system",$username,$pass);
 
   //        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-  // echo "Connected successfully";
+//   echo "Connected successfully";
 
 
     }catch(PDOException $e){
