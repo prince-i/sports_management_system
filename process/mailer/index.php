@@ -2,13 +2,13 @@
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
-require '../conn.php';
+
 require 'vendor/autoload.php';
+
+require '../conn.php';
 
 $recipient = $_POST['email'];
 
-$pass = hex2bin('5765626465766d616c616c61');
-$pass = trim($pass);
 
 $sql = "SELECT * FROM user_accounts";
 $stmt = $conn->prepare($sql);
@@ -41,7 +41,7 @@ try {
     $mail->Host       = 'smtp.office365.com';                    // Set the SMTP server to send through
     $mail->SMTPAuth   = true;                                   // Enable SMTP authentication
     $mail->Username   = 'mamidevs@outlook.com';                     // SMTP username
-    $mail->Password   = $pass;                               // SMTP password
+    $mail->Password   = 'Webdevmalala';                               // SMTP password
     $mail->SMTPSecure = 'tls';         // Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` encouraged
     $mail->Port       = 587;                                    // TCP port to connect to, use 465 for `PHPMailer::ENCRYPTION_SMTPS` above
 
@@ -66,7 +66,7 @@ try {
                         <br>
                         <table style="border:1;border-collapse:collapse;">
                             <tr>
-                                <td>ID NUMBER</td>
+                                <td>ID NUMBER:</td>
                                 <td>'.$id_number.'</td>
                             </tr>
                             <tr>
@@ -74,27 +74,27 @@ try {
                                 <td>'.$name.'</td>
                             </tr>
                             <tr>
-                                <td>COURSE</td>
+                                <td>COURSE:</td>
                                 <td>'.$course.'</td>
                             </tr>
                             <tr>
-                                <td>YR/SECTION</td>
+                                <td>YR/SECTION:</td>
                                 <td>'.$yr_section.'</td>
                             </tr>
                             <tr>
-                                <td>EMAIL</td>
-                                <td>'.$email.'</td>
+                                <td>EMAIL:</td>
+                                <td>'.$email_.'</td>
                             </tr>
                             <tr>
-                                <td>PASSWORD</td>
+                                <td>PASSWORD:</td>
                                 <td>'.$pass.'</td>
                             </tr>
                             <tr>
-                                <td>ROLE</td>
+                                <td>ROLE:</td>
                                 <td>'.$role.'</td>
                             </tr>
                             <tr>
-                                <td>ACCOUNT STATUS/PERMISSION</td>
+                                <td>ACCOUNT STATUS/PERMISSION:</td>
                                 <td>'.$permission.'</td>
                             </tr>
                         </table>
