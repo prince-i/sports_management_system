@@ -14,12 +14,13 @@ CREATE TABLE `borrow_list` (
   `borrowing_code` varchar(50) DEFAULT NULL,
   `status` varchar(20) DEFAULT 'Pending',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4;
 
 INSERT INTO `borrow_list` VALUES("1","requester","jj","2022-09-08","11:48","11:50","2022-09-08","11:48","sample","asd","BC:22090811303","Approved");
 INSERT INTO `borrow_list` VALUES("2","try","try","2022-09-08","15:38","15:40","2022-09-08","15:43","sample","sample","BC:22090841610","Dis-Approved");
 INSERT INTO `borrow_list` VALUES("3","try","try","2022-09-08","16:28","16:30","2022-09-08","16:28","sample2","sample3","BC:22090848641","Returned");
 INSERT INTO `borrow_list` VALUES("4","requester","jj","2022-09-10","07:11","09:14","2022-09-09","10:16","sample2","training","BC:22090937158","Pending");
+INSERT INTO `borrow_list` VALUES("5","0000","test","2022-09-12","12:52","15:55","2022-09-15","13:54","sample2","training","BC:22091238317","Pending");
 
 
 
@@ -37,7 +38,7 @@ CREATE TABLE `borrowed_equipments` (
   `purpose` varchar(255) DEFAULT NULL,
   `borrow_code` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4;
 
 INSERT INTO `borrowed_equipments` VALUES("1","sample","1","requester","2022-09-08","11:48","11:50","sample","asd","BC:22090811303");
 INSERT INTO `borrowed_equipments` VALUES("2","sample","1","requester","2022-09-08","11:48","11:50","sample","asd","BC:22090811303");
@@ -51,6 +52,7 @@ INSERT INTO `borrowed_equipments` VALUES("9","sample","1","try","2022-09-08","16
 INSERT INTO `borrowed_equipments` VALUES("10","volleyball net","1","requester","2022-09-10","07:11","09:14","sample2","training","BC:22090937158");
 INSERT INTO `borrowed_equipments` VALUES("11","volleyball net","1","requester","2022-09-10","07:11","09:14","sample2","training","BC:22090937158");
 INSERT INTO `borrowed_equipments` VALUES("12","d","1","requester","2022-09-10","07:11","09:14","sample2","training","BC:22090937158");
+INSERT INTO `borrowed_equipments` VALUES("13","volleyball net","1","0000","2022-09-12","12:52","15:55","sample2","training","BC:22091238317");
 
 
 
@@ -134,12 +136,14 @@ CREATE TABLE `user_accounts` (
   `role` varchar(20) DEFAULT NULL,
   `permission` int(1) NOT NULL COMMENT '1=authorized 0=unauthorized',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4;
 
 INSERT INTO `user_accounts` VALUES("1","jj","bsit","4th","21-07087","admin@mail.com","admin","admin","1");
 INSERT INTO `user_accounts` VALUES("2","jj","bsit","4th","requester","req@mail.com","admin","requester","1");
 INSERT INTO `user_accounts` VALUES("4","try","try","try","try","try@mail.com","admin","requester","0");
 INSERT INTO `user_accounts` VALUES("5","a","a","a","as","a","a","requester","0");
+INSERT INTO `user_accounts` VALUES("10","test","BSIT","4th","0000","sample@mail.com","sample","requester","1");
+INSERT INTO `user_accounts` VALUES("12","keanu","BSIT","4-A","0000","keanu.aldrin23@gmail.com","0000","requester","1");
 
 
 
